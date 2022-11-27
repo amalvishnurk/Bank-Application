@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col-6 text-center">
+        <!-- copy image address -->
+        <img class="mt-5" src='https://images.freeimages.com/clg/istock/previews/1067/106743751-bank-building-on-white-background.jpg' alt="">
+    </div>
+    <div class="col-6">
+        <form (ngSubmit)="login()" [formGroup]="loginForm" class=" p-3 border " style="margin-top: 150px;">
+            <div class="mb-3">
+                <label for="acno">Account Number</label>
+                <input formControlName="acno" name="acno" id="acno" type="text" placeholder="Account Number" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="pswd">Password</label>
+                <input formControlName="pswd" name="pswd" id="pswd" type="text" placeholder="Password" class="form-control">
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary">Login</button> &nbsp;
+                <span> New user? Click here to <a href="">Register</a></span>
+            </div>
+        </form>
+    </div>
+</div>
