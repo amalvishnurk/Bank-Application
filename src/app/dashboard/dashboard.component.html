@@ -1,0 +1,137 @@
+<!-- navbar -->
+<!-- expand-lg: means from lg screen onwards navbar will expand -->
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid title">
+        <div class="col-lg-10">
+            <i class="fa-sharp fa-solid fa-building-columns"></i> &nbsp;
+            <a class="navbar-brand fs-4" routerLink=""><b>Online Bank</b></a>
+        </div>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Services
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" routerLink="/deposit">Deposit</a></li>
+                        <li><a class="dropdown-item" routerLink="/withdraw">Withdraw</a></li>
+                        <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasExample"
+                                (click)="getBalance()">Balance enquiry
+                            </a></li>
+                        <li><a class="dropdown-item" routerLink="/transaction">Transaction history</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><button class="dropdown-item" (click)="deletes()">
+                                <i class="fa-sharp fa-solid fa-trash"></i> &nbsp; Delete Account</button></li>
+                        <li><button class="dropdown-item" (click)="logout()">
+                                <i class="fa-solid fa-right-from-bracket"></i> &nbsp;
+                                Sign Out</button></li>
+
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<!-- logout popup -->
+<div class=" container mt-5 " *ngIf="isLogout">
+    <div class="row text-center ">
+
+
+        <div class="col">
+            <img class="w-25 d-block m-auto mb-5"
+                src="https://i.pinimg.com/originals/1c/13/f3/1c13f3fe7a6bba370007aea254e195e3.gif" alt="no image">
+            <h4 class="title">Please wait . . . You are Signing Out . . . </h4>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+<!-- delete child selector -->
+
+<app-delete (onCancel)="cancel()" (onRemove)="remove($event)" [item]="acno"  [serverMsg]="deleteMsg"></app-delete>
+
+
+
+<!-- dashboard -->
+
+<div *ngIf="!confirmMsg">
+    <div class="container" *ngIf="!isLogout" [ngClass]="acno?'hide':''">
+        <div class="row">
+            <div class="col-md-5 title ">
+                <h1 class="mt-5 animate__animated animate__heartBeat">Welcome {{user}}</h1>
+                <div>
+                    <label>This is dummy content: Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam incidunt
+                        quas hic optio atque
+                        illum eos neque deserunt ab, est repellendus et sequi vitae pariatur ipsa. Perspiciatis consectetur
+                    </label>
+    
+    
+                    <div class="collapse" id="collapseExample">
+    
+                        Some placeholder content for the collapse component. This panel is hidden by default but
+                        revealed
+                        when the user activates the relevant trigger.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam harum temporibus, cumque hic ex quae
+                        ut aspernatur error commodi aliquam fugit quibusdam iusto laboriosam amet architecto placeat
+                        asperiores eligendi odio!
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus iure numquam odio. Cumque,
+                        quisquam enim modi molestias expedita voluptatem at cupiditate sed voluptatum commodi cum
+                        doloremque, tempore iusto vel alias?
+    
+                    </div>
+    
+    
+                    <button (click)="collapse()" class="btn btn-primary mt-3" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        <label *ngIf="isCollapse">Read more</label>
+                        <label *ngIf="!isCollapse">Read less</label>
+    
+    
+                    </button>
+    
+                </div>
+    
+            </div>
+    
+            <div class="col-md-7">
+                <img class="img-fluid"
+                    src="https://thumbs.dreamstime.com/b/bank-building-banking-investment-wealth-growth-symbols-facade-businessman-vector-cartoon-business-concept-architecture-146696006.jpg"
+                    alt="">
+    
+            </div>
+        </div>
+    </div>
+
+</div>  
+
+<!-- balace enquiry -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Balance Enquiry</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+
+        <img class="image-fluid" height="300px" width="300px"
+            src="https://assets.materialup.com/uploads/6fae28ed-17ed-4bb1-bd90-1d642b5ba0d3/preview.jpg" alt="no image">
+        <h5 style="font-size: medium;">Hi {{user}},
+            <br>Your Current Balance is : Rs {{balance}}
+        </h5>
+    </div>
+
+</div>

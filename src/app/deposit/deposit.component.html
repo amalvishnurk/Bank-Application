@@ -1,0 +1,126 @@
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid title">
+        <div class="col-lg-10">
+            <i class="fa-sharp fa-solid fa-building-columns"></i> &nbsp;
+            <a class="navbar-brand fs-4" routerLink="/dashboard"><b>Online Bank</b></a>
+        </div>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Services
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" routerLink="/withdraw">Withdraw</a></li>
+                        <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasExample" (click)="getBalance()" >Balance enquiry
+                        </a></li>
+                    <li><a class="dropdown-item" routerLink="/transaction">Transaction history</a></li>
+
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+<div class="container mt-3">
+    <h1 class="text-success">Deposit Form</h1>
+    <p>This is dummy data: Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni corrupti tempora ex aliquam
+        esse iste est enim illum aliquid. Odio mollitia est magni vitae beatae ipsa fugiat, sunt optio ratione. Lorem
+        ipsum dolor sit amet consectetur adipisicing elit. Odio quisquam animi libero explicabo aspernatur ullam ad
+        eaque, accusamus natus maiores, nesciunt ex dolorem vero illum, perspiciatis harum provident. Voluptatem,
+        minima?</p>
+
+    <div class="row mt-5">
+        <div class="col-lg-4 text-center">
+            <img class="img-fluid" width='300px'
+                src="data:image/jpeg;base64,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"
+                alt="no image">
+            <!-- back button -->
+            <br>
+            <a routerLink="/dashboard" class="btn btn-success mt-3">
+                <i class="fa-solid fa-hand-point-left"></i> &nbsp;Back</a>
+
+        </div>
+        <div class=" col-lg-8">
+            <form id="forms" (ngSubmit)="deposit()" [formGroup]="depositForm" class="border p-3">
+
+
+
+                <div class="form-floating mb-3">
+                    <input type="number" formControlName="acno" name="acno" class="form-control" id="floatingAccount"
+                        placeholder="Account no.">
+                    <label for="floatingPassword">Account no.</label>
+                </div>
+                <div *ngIf="this.depositForm.get('acno')?.errors && this.depositForm.get('acno')?.touched"
+                    class="mb-3 text-danger">
+                    Invalid Account no.
+                </div>
+
+
+                <div class="form-floating  mb-3">
+                    <input type="password" formControlName="pswd" name="pswd" class="form-control" id="floatingPassword"
+                        placeholder="Password">
+                    <label for="floatingPassword">Password</label>
+                </div>
+                <div *ngIf="this.depositForm.get('pswd')?.errors && this.depositForm.get('pswd')?.touched"
+                    class="mb-3 text-danger">
+                    Invalid Password
+                </div>
+
+
+
+
+                <div class="form-floating mb-3">
+                    <input type="email" formControlName="amount" name="amount" class="form-control" id="floatingInput"
+                        placeholder="amount">
+                    <label for="floatingInput">Amount</label>
+                </div>
+                <div *ngIf="this.depositForm.get('amount')?.errors && this.depositForm.get('amount')?.touched"
+                    class="mb-3 text-danger">
+                    Invalid amount
+                </div>
+
+
+                <!-- server response -->
+                <div class="text-light"><b>{{eMsg}}</b></div>
+
+                <div class="mt-3 text-center">
+                    <button type="submit" class="btn btn-success">Deposit</button>
+                </div>
+
+
+
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<!-- balace enquiry -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Balance Enquiry</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+
+        <img class="image-fluid" height="300px" width="300px"
+            src="https://assets.materialup.com/uploads/6fae28ed-17ed-4bb1-bd90-1d642b5ba0d3/preview.jpg" alt="no image">
+        <h5 style="font-size: medium;" >Hi {{user}},
+            <br>Your Current Balance is : Rs  {{balance}}
+        </h5>
+    </div>
+
+</div>
